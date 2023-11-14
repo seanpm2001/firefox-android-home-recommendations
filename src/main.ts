@@ -29,7 +29,7 @@ app.get('/.well-known/server-health', (req, res) => {
 app.get('/', async (req, res) => {
   // enable 30 minute cache when in AWS
   if (config.app.environment !== 'development') {
-    res.set('Cache-control', 'public, max-age=1800');
+    res.set('Cache-control', 'public, max-age=5');
   }
 
   res.json(await getRecommendations());
